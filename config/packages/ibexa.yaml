@@ -58,18 +58,20 @@ ibexa:
 
     # Siteaccess configuration, with one siteaccess per default
     siteaccess:
-        list: [site]
+        list: [site, dealership]
         groups:
             site_group: [site]
+            dealership_group: [dealership]
         default_siteaccess: site
         match:
             URIElement: 1
-
     # System settings, read in following order: `default`, <siteaccess-group>, <siteacces>, and `global`
     # TIP: For multisite installations organize shared config into SiteAccess groups,
     #      on single-site you can place shared config under "default" for simplicity as shown below.
     system:
         default:
+            field_templates:
+                - { template: 'multipleImages_field.html.twig', priority: 0 }
             # Cache pool service, needs to be different per repository (database) on multi repository install.
             cache_service_name: '%cache_pool%'
             # These reflect the current installers, complete installation before you change them. For changing var_dir
@@ -92,7 +94,57 @@ ibexa:
 
         site:
             languages: [eng-GB]
-
+            content_view:
+                full:
+                    home_page:
+                        controller: ibexa_query::pagingQueryAction
+                        template: full/home_page.html.twig
+                        match:
+                            Id\Location: 2
+                        params:
+                            query:
+                                query_type: Dealership
+                                assign_results_to: dealerships
+                    dealership_page:
+                        controller: ibexa_query::pagingQueryAction
+                        template: full/dealership_page.html.twig
+                        match:
+                            Identifier\ContentType: car_dealership
+                        params:
+                            query:
+                                query_type: Cars
+                                assign_results_to: cars
+                                parameters:
+                                    location_path: '@=content.contentInfo.mainLocation.pathString'
+                    car_page:
+                        controller: ibexa_query::pagingQueryAction
+                        template: full/car_page.html.twig
+                        match:
+                            Identifier\ContentType: car
+                        params:
+                            query:
+                                query_type: CurrentAddress
+                                assign_results_to: dealerships
+                                parameters:
+                                    location_path: '@=content.contentInfo.mainLocation.pathString'
+                line:
+                    car_dealership:
+                        template: line/car_dealership_line.html.twig
+                        match:
+                            Identifier\ContentType: car_dealership
+                    car:
+                        template: line/car_line.html.twig
+                        match:
+                            Identifier\ContentType: car
+                    image_gallery:
+                        template: line/image_gallery_line.html.twig
+                        match:
+                            Identifier\ContentType: image
+                embed:
+                    car_dealership:
+                        template: embed/dealership_embed.html.twig
+                        match:
+                            Identifier\ContentType: car_dealership
     url_alias:
         slug_converter:
             transformation: 'urlalias_lowercase'

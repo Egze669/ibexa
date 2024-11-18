@@ -1,0 +1,13 @@
+{% block content %}
+    <p>
+        <a href="{{ path("all_cars_page") }}">wszystkie samochody</a>
+    </p>
+    <div class="col-xs-10 col-xs-offset-1 text-justified">
+        <p>
+            indywidualne oferty:
+        </p>
+            {% for dealership in dealerships.currentPageResults %}
+                {{ render( controller( 'ibexa_content::viewAction', { 'location': dealership.valueObject, 'viewType': 'line' } )) }}
+            {% endfor %}
+    </div>
+{% endblock %}

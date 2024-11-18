@@ -19,6 +19,9 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
-
+    App\FieldType\MultipleImages\Type:
+        tags:
+            - { name: ibexa.field_type, alias: multipleImages }
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: multipleImages }
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
