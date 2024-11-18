@@ -188,6 +188,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/willdurand/jsonp-callback-validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zetacomponents/base" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zetacomponents/system-information" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/commandlinetools" />
+      <excludeFolder url="file://$MODULE_DIR$/public/build" />
+      <excludeFolder url="file://$MODULE_DIR$/public/bundles" />
+      <excludeFolder url="file://$MODULE_DIR$/var" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
