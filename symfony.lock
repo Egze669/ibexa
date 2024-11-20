@@ -598,6 +598,9 @@
             "webpack.config.js"
         ]
     },
+    "tanoconsulting/ibexa-migration-bundle": {
+        "version": "1.0.4"
+    },
     "twig/extra-bundle": {
         "version": "v3.13.0"
     },

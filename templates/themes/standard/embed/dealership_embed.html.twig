@@ -1,3 +1,7 @@
+
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% block content %}
 <div>
     <p>
         {{ ibexa_render_field(content, 'address') }}
@@ -6,3 +10,4 @@
         {{ ibexa_render_field(content, 'dealership_location', {'parameters': {'width': '30%', 'height': '200px', 'showMap': true, 'showInfo': false }}) }}
     </div>
 </div>
+{% endblock %}

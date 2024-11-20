@@ -58,10 +58,9 @@ ibexa:
 
     # Siteaccess configuration, with one siteaccess per default
     siteaccess:
-        list: [site, dealership]
+        list: [site, test-dealer-1, test-dealer-2]
         groups:
-            site_group: [site]
-            dealership_group: [dealership]
+            site_group: [site, test-dealer-1, test-dealer-2]
         default_siteaccess: site
         match:
             URIElement: 1
@@ -91,14 +90,14 @@ ibexa:
                 icon_sets:
                     public_icons: /bundles/ibexaadminui/img/ibexa-icons.svg
                 default_icon_set: public_icons
-
         site:
             languages: [eng-GB]
+        site_group:
             content_view:
                 full:
                     home_page:
                         controller: ibexa_query::pagingQueryAction
-                        template: full/home_page.html.twig
+                        template: "@ibexadesign/full/home_page.html.twig"
                         match:
                             Id\Location: 2
                         params:
@@ -106,19 +105,13 @@ ibexa:
                                 query_type: Dealership
                                 assign_results_to: dealerships
                     dealership_page:
-                        controller: ibexa_query::pagingQueryAction
-                        template: full/dealership_page.html.twig
+                        controller: App\Controller\DealershipController::index
+                        template: "@ibexadesign/full/dealership_page.html.twig"
                         match:
                             Identifier\ContentType: car_dealership
-                        params:
-                            query:
-                                query_type: Cars
-                                assign_results_to: cars
-                                parameters:
-                                    location_path: '@=content.contentInfo.mainLocation.pathString'
                     car_page:
                         controller: ibexa_query::pagingQueryAction
-                        template: full/car_page.html.twig
+                        template: "@ibexadesign/full/car_page.html.twig"
                         match:
                             Identifier\ContentType: car
                         params:
@@ -129,22 +122,46 @@ ibexa:
                                     location_path: '@=content.contentInfo.mainLocation.pathString'
                 line:
                     car_dealership:
-                        template: line/car_dealership_line.html.twig
+                        template: "@ibexadesign/line/car_dealership_line.html.twig"
                         match:
                             Identifier\ContentType: car_dealership
                     car:
-                        template: line/car_line.html.twig
+                        template: "@ibexadesign/line/car_line.html.twig"
                         match:
                             Identifier\ContentType: car
                     image_gallery:
-                        template: line/image_gallery_line.html.twig
+                        template: "@ibexadesign/line/image_gallery_line.html.twig"
                         match:
                             Identifier\ContentType: image
                 embed:
                     car_dealership:
-                        template: embed/dealership_embed.html.twig
+                        template: "@ibexadesign/embed/dealership_embed.html.twig"
                         match:
                             Identifier\ContentType: car_dealership
+        test-dealer-1:
+            content:
+                tree_root:
+                    location_id: 54
+            languages: [ eng-GB ]
+#            content_view:
+#                full:
+#                    home_page:
+#                        template: "@ibexadesign/full/home1_page.html.twig"
+#                        match:
+#                            Id\Location: 54
+        test-dealer-2:
+            content:
+                tree_root:
+                    location_id: 55
+                    excluded_uri_prefixes: [/media, /images]
+            languages: [ eng-GB ]
+#            content_view:
+#                full:
+#                    home_page:
+#                        template: "@ibexadesign/full/home2_page.html.twig"
+#                        match:
+#                            Id\Location: 55
+
     url_alias:
         slug_converter:
             transformation: 'urlalias_lowercase'

@@ -1,39 +1,14 @@
-<ul>
-    {% if content_cars %}
-        <div class="search-bar">
-            <label for="search">Search:</label>
-            <input type="text" id="search" class="search-input" placeholder="Search by brand, model, year, or price">
-            <button class="sortButton" data-sort-by="car_brand">Sort by Brand</button>
-            <button class="sortButton" data-sort-by="model">Sort by model</button>
-            <button class="sortButton" data-sort-by="year">Sort by year</button>
-            <button class="sortButton" data-sort-by="price">Sort by price</button>
-        </div>
-        {% for car in content_cars %}
-            <div class="car-row">
-                {% if car.fields.year|default and car.fields.price|default and car.fields.model|default and car.fields.car_brand|default %}
-                    <strong>marka:</strong>
-                    <div class="car_brand">{{ ibexa_render_field(car, 'car_brand') }}</div>
-                    <strong>model:</strong>
-                    <div class="model"> {{ ibexa_render_field(car, 'model') }}</div>
-                    <strong>rok:</strong>
-                    <div class="year">{{ ibexa_render_field(car, 'year') }}</div>
-                    <strong>cena:</strong>
-                    <div class="price">{{ ibexa_render_field(car, 'price') }}</div>
-                {% endif %}
-            </div>
-        {% endfor %}
-    {% endif %}
-</ul>
-<script>
+(function (global, doc) {
     let sortDirection = {
         brand: true,   // true means ascending, false means descending
         model: true,
         year: true,
         price: true
     };
-    document.querySelectorAll('.sortButton').forEach(button => {
+
+    doc.querySelectorAll('.sortButton').forEach(button => {
         button.addEventListener('click', function() {
-            const carRows = Array.from(document.querySelectorAll('.car-row'));
+            const carRows = Array.from(doc.querySelectorAll('.car-row'));
             const sortBy = this.getAttribute('data-sort-by');
             const isAscending = sortDirection[sortBy];
             carRows.sort((a, b) => {
@@ -53,18 +28,21 @@
             sortDirection[sortBy] = !sortDirection[sortBy];
         });
     });
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('search');
+
+
+    doc.addEventListener('DOMContentLoaded', function () {
+
+        const searchInput = doc.getElementById('search');
 
         searchInput.addEventListener('input', function () {
             filterCars();
         });
 
-
         function filterCars() {
-            const carRows = document.querySelectorAll('.car-row');
+            const carRows = doc.querySelectorAll('.car-row');
 
             const searchTerm = searchInput.value.toLowerCase();
+
             carRows.forEach(row => {
                 try {
                     const brand = row.querySelector('.car_brand').textContent.toLowerCase();
@@ -87,4 +65,4 @@
             });
         }
     });
-</script>
+})(window, document);

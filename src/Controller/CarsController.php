@@ -19,7 +19,6 @@ class CarsController extends AbstractController
 {
     /**
      * @Route("/catalog", name="all_cars_page")
-     * @throws TransportExceptionInterface
      * @throws BadStateException
      */
  public function index(Repository $repository): Response
@@ -30,7 +29,7 @@ class CarsController extends AbstractController
      $response =$repository->getContentService()->find($filter,[]);
 //     var_dump($response);
 
-     return $this->render('/all_cars_view.html.twig', [
+     return $this->render('@ibexadesign/full/all_cars_view.html.twig', [
          'content_cars' => $response ?? [],
      ]);
  }

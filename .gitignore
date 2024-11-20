@@ -1,13 +1,15 @@
 ###> phpstorm settings ###
-.idea/
+/.idea/
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/
 /var/
 /vendor/
+.env
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###

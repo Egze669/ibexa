@@ -1,0 +1,41 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('car-page-css') }}
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        <strong>
+            {{ ibexa_render_field(content, 'car_brand') }}
+            {{ ibexa_render_field(content, 'model') }}
+        </strong>
+    </p>
+    <p>
+        {{ ibexa_render_field(content, 'type_of_drive') }}
+    </p>
+    <p>
+        {{ ibexa_render_field(content, 'door_count') }}
+    </p>
+    <p>
+        {{ ibexa_render_field(content, 'mileage') }}
+    </p>
+    <p>
+        {{ ibexa_render_field(content, 'color') }}
+    </p>
+    {% if not ibexa_field_is_empty( content, 'description' ) %}
+        <p>
+            {{ ibexa_render_field(content, 'description') }}
+        </p>
+    {% endif %}
+    <p>
+        {{ ibexa_render_field(content, 'price') }}
+    </p>
+    {% for currentAddress in dealerships.currentPageResults %}
+        {{ ibexa_render(currentAddress.valueObject, {'viewType': 'embed'} )}}
+    {% endfor %}
+    {% if not ibexa_field_is_empty( content, 'image_gallery' ) %}
+        {{ ibexa_render_field(content,'image_gallery', {'attr': {class: 'thumbnail-image'},}) }}
+    {% endif %}
+{% endblock %}

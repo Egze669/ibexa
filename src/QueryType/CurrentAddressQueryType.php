@@ -19,7 +19,6 @@ class CurrentAddressQueryType implements QueryType
      */
     public function getQuery(array $parameters = []): LocationQuery
     {
-        var_dump($parameters['location_path']);
         return new LocationQuery([
             'filter' => new Criterion\LogicalAnd(
                 [

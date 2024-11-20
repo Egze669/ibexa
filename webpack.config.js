@@ -23,14 +23,20 @@ Encore.setOutputPath('public/build/')
         config.corejs = 3;
     });
 
-// Welcome page stylesheets
+// stylesheets
 Encore.addEntry('welcome-page-css', [
     path.resolve(__dirname, './assets/scss/welcome-page.scss'),
 ]);
+Encore.addEntry('car-page-css', [
+    path.resolve(__dirname, './assets/scss/car-page.scss'),
+]);
 
-// Welcome page javascripts
+// javascripts
 Encore.addEntry('welcome-page-js', [
     path.resolve(__dirname, './assets/js/welcome.page.js'),
+]);
+Encore.addEntry('dealership-page-js', [
+    path.resolve(__dirname, './assets/js/dealership.page.js'),
 ]);
 
 Encore.addEntry('app', './assets/app.js');

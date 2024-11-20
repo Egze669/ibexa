@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74f978185cae8a185d060b762e980a95",
+    "content-hash": "a331aa5d1dd2aff1008f0ff3d5e19a03",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -5528,6 +5528,72 @@
                 }
             ],
             "time": "2024-04-12T20:52:51+00:00"
+        },
+        {
+            "name": "mtdowling/jmespath.php",
+            "version": "2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.php.git",
+                "reference": "a2a865e05d5f420b50cc2f85bb78d565db12a6bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/a2a865e05d5f420b50cc2f85bb78d565db12a6bc",
+                "reference": "a2a865e05d5f420b50cc2f85bb78d565db12a6bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "composer/xdebug-handler": "^3.0.3",
+                "phpunit/phpunit": "^8.5.33"
+            },
+            "bin": [
+                "bin/jp.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/JmesPath.php"
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Declaratively specify how to extract elements from a JSON document",
+            "keywords": [
+                "json",
+                "jsonpath"
+            ],
+            "support": {
+                "issues": "https://github.com/jmespath/jmespath.php/issues",
+                "source": "https://github.com/jmespath/jmespath.php/tree/2.8.0"
+            },
+            "time": "2024-09-04T18:46:31+00:00"
         },
         {
             "name": "murtukov/php-code-generator",
@@ -13306,6 +13372,89 @@
             "time": "2024-09-16T14:36:56+00:00"
         },
         {
+            "name": "tanoconsulting/ibexa-migration-bundle",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tanoconsulting/ibexa-migration-bundle.git",
+                "reference": "260aed10ccbe4cf4882bd76a2e63df8e5501ee9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tanoconsulting/ibexa-migration-bundle/zipball/260aed10ccbe4cf4882bd76a2e63df8e5501ee9e",
+                "reference": "260aed10ccbe4cf4882bd76a2e63df8e5501ee9e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.11|^3.0",
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "ibexa/core": "^4.0",
+                "mtdowling/jmespath.php": "^2.0.0",
+                "nikic/php-parser": "^4.2.2",
+                "php": "^7.4|^8.0",
+                "symfony/expression-language": "*",
+                "symfony/process": "*",
+                "symfony/swiftmailer-bundle": "*",
+                "symfony/validator": "*",
+                "symfony/var-dumper": "*"
+            },
+            "conflict": {
+                "kaliop/ezmigrationbundle": "*",
+                "tanoconsulting/ezmigrationbundle2": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.12"
+            },
+            "suggest": {
+                "php-http/httplug-bundle": "Required for usage of HTTP/CALL migration steps"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Kaliop\\eZMigrationBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Douglas Hammond",
+                    "email": "wizhippo@gmail.com",
+                    "role": "Original author"
+                },
+                {
+                    "name": "Gaetano Giunta",
+                    "email": "ggiunta@tanoconsulting.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Peter Halasz",
+                    "role": "Original author"
+                }
+            ],
+            "description": "The port of Kaliop eZ-Migration Bundle to Ibexa 4",
+            "keywords": [
+                "database",
+                "ibexa",
+                "migrations"
+            ],
+            "support": {
+                "issues": "https://github.com/tanoconsulting/ibexa-migration-bundle/issues",
+                "source": "https://github.com/tanoconsulting/ibexa-migration-bundle/tree/1.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/tanoconsulting",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-06-16T08:49:47+00:00"
+        },
+        {
             "name": "toflar/psr6-symfony-http-cache-store",
             "version": "3.0.1",
             "source": {
@@ -14017,7 +14166,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -14025,6 +14174,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

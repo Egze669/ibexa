@@ -1,3 +1,5 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
 {% block content %}
     <p>
         <a href="{{ path("all_cars_page") }}">wszystkie samochody</a>
@@ -7,7 +9,7 @@
             indywidualne oferty:
         </p>
             {% for dealership in dealerships.currentPageResults %}
-                {{ render( controller( 'ibexa_content::viewAction', { 'location': dealership.valueObject, 'viewType': 'line' } )) }}
+                {{ ibexa_render(dealership.valueObject, {'viewType': 'line'}) }}
             {% endfor %}
     </div>
 {% endblock %}

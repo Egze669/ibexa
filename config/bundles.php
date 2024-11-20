@@ -49,4 +49,5 @@ return [
     BabDev\PagerfantaBundle\BabDevPagerfantaBundle::class => ['all' => true],
     Hautelook\TemplatedUriBundle\HautelookTemplatedUriBundle::class => ['all' => true],
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
+    Kaliop\eZMigrationBundle\eZMigrationBundle::class => ['all' => true],
 ];

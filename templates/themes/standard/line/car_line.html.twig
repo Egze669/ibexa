@@ -1,0 +1,23 @@
+{% extends '@ibexadesign/pagelayout.html.twig' %}
+
+{% block content %}
+<div>
+
+    <a href="{{ path( "ibexa.url.alias", { 'locationId': content.contentInfo.mainLocationId } ) }}" target="_self">
+        <div class="car-row">
+            <strong>marka:</strong>
+            <div class="car_brand">{{ ibexa_render_field(content, 'car_brand') }}</div>
+            <strong>model:</strong>
+            <div class="model">{{ ibexa_render_field(content, 'model') }}</div>
+            <strong>rok:</strong>
+            <div class="year">{{ ibexa_render_field(content, 'year') }}</div>
+            <strong>cena:</strong>
+            <div class="price">{{ ibexa_render_field(content, 'price') }}</div>
+            <hr/>
+        </div>
+    </a>
+{#    <p>#}
+{#        {{ ibexa_render_field(content, '') }}#}
+{#    </p>#}
+</div>
+{% endblock %}
