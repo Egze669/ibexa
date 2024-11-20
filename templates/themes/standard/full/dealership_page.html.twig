@@ -25,23 +25,21 @@
         </div>
         <div class="car_list">
             {% for car in searchResultsFiltered %}
-                {% if carLocations[car.id] %}
                     <div  class="car-row">
-                        <a href="{{ ibexa_path(carLocations[car.id]) }}">
+                        <a href="{{ ibexa_path(car) }}">
                             <div>
                                 <strong>marka:</strong>
-                                <div class="car_brand">{{ ibexa_render_field(car, 'car_brand') }}</div>
+                                <div class="car_brand">{{ ibexa_render_field(car.content, 'car_brand') }}</div>
                                 <strong>model:</strong>
-                                <div class="model">{{ ibexa_render_field(car, 'model') }}</div>
+                                <div class="model">{{ ibexa_render_field(car.content, 'model') }}</div>
                                 <strong>rok:</strong>
-                                <div class="year">{{ ibexa_render_field(car, 'year') }}</div>
+                                <div class="year">{{ ibexa_render_field(car.content, 'year') }}</div>
                                 <strong>cena:</strong>
-                                <div class="price">{{ ibexa_render_field(car, 'price') }}</div>
+                                <div class="price">{{ ibexa_render_field(car.content, 'price') }}</div>
                                 <hr/>
                             </div>
+                        </a>
                     </div>
-                    </a>
-                {% endif %}
 
             {% endfor %}
         </div>
